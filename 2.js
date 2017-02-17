@@ -1,4 +1,5 @@
 const data = require('./data.js')
+const {map,filter,compose} = require('ramda')
 
 // When where there be a chance of rain this weekend?
 
@@ -9,6 +10,14 @@ const data = require('./data.js')
   //  temperature in fahrenheit
   //  weather condition (ex: 'Rain')
 
-var result = // Your code goes here. 
+var result = compose(
+  map((fc) => ({
+    'day of the week': fc.FCTTIME.weekday_name,
+    'time and date': fc.FCTTIME.pretty,
+    'temperature (F)': fc.temp.english,
+    'condition': fc.condition
+  })),
+  filter((fc) => fc.condition.includes('Rain') || fc.wx.includes('Rain'))
+)(data.hourly_forecast)
 
 console.log("When where there be a chance of rain this weekend?", result)
