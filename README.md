@@ -12,7 +12,7 @@
   ```
   http://api.wunderground.com/api/c88ea0ce3f39121f/hourly10day/q/MT/Bozeman.json
   ```
-- At noon, send Trip a private slack message with the url of your fork.
+- At 1 p.m., send Trip a private slack message with the url of your fork.
 
 
 ## Extra Credit
